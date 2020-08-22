@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 import { Paper, TextField, Button, Box } from '@material-ui/core'
-import { actionTypes as actions } from '../actions/types'
+//import { actionTypes as actions } from '../actions/types'
+import { postMessage } from '../actions'
 import { stateT } from '../common/types'
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -42,13 +43,10 @@ export default () => {
                         <Button
                             className={classes.button} variant="contained" color="primary" size="large"
                             onClick={() => {
-                                dispatch({
-                                    type: actions.postMsg,
-                                    msg: {
-                                        user: user,
-                                        text: text
-                                    }
-                                });
+                                dispatch(postMessage({
+                                    user: user,
+                                    text: text
+                                }));
                                 setText('');
                             }}
                         >

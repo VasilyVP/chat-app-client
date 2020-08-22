@@ -1,22 +1,5 @@
-# React-Redux boilerplate
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Chat application. Client part.
 
-TypeScript template.
-
-## Included
-
-### Packages:
-react, react-dom (as npx create-react-app [app-name] --template typescript),
-redux, react-redux,
-redux-logger,
-redux-thunk,
-@types/react-redux",
-fs-extra (just for `npm run cpbuild`)
-
-### Proxy
-
-### App structure
-actions, assets(like imgs), commmon(consts, common types and e.t.c.), components, reducers, store (configured store with logger for dev, 'thunk' and root reducer)
 
 ## Available Scripts
 

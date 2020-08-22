@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, Typography } from '@material-ui/core'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
-import { Paper, TextField, Button } from '@material-ui/core'
-import { actionTypes as actions } from '../actions/types'
+import { Paper, TextField, Button, IconButton } from '@material-ui/core'
+import { joinUser, leaveChat} from '../actions'
 import { stateT } from '../common/types'
+import MeetingRoomIcon from '@material-ui/icons/MeetingRoom'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,17 +46,17 @@ export default () => {
                                 className={classes.button}
                                 variant="outlined"
                                 color="secondary"
-                                onClick={() => dispatch({
-                                    type: actions.joinUser,
-                                    user: nickname
-                                })}
+                                onClick={() => dispatch(joinUser(nickname))}
                             >
                                 Join
                             </Button>
                         </>
                         :
-                        <Box color="secondary.main" pr={1}>
+                        <Box className={classes.root} color="secondary.main" pr={1} display="flex" alignItems="center">
                             <Typography variant="h6">Hey, {user}!</Typography>
+                            <IconButton onClick={() => dispatch(leaveChat())}>
+                                <MeetingRoomIcon color="primary" />
+                            </IconButton>
                         </Box>
                     }
                 </Box>
